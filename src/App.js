@@ -115,11 +115,11 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("TitleSizeSettings", JSON.stringify(titleSize)) // Save Title Font Size
-  }, [sizeX])
+  }, [titleSize])
 
   useEffect(() => {
     localStorage.setItem("ContentSizeSettings", JSON.stringify(contentSize)) // Save Content Font Size
-  }, [sizeY])
+  }, [contentSize])
 
 
 
@@ -239,7 +239,7 @@ function App() {
           <div className='HorizontalSettings'>
             ↔
             <input
-            className='HorizontalSlider'
+              className='HorizontalSlider'
               type="range"
               min="100" max="1000"
               value={sizeX}
@@ -247,7 +247,7 @@ function App() {
               step="5"
             />
             <input
-            className='HorizontalInput'
+              className='HorizontalInput'
               type="text"
               value={sizeX}
               onChange={e => setSizeX(e.target.value)}
@@ -258,7 +258,7 @@ function App() {
           <div className='VerticalSettings'>
             ↕
             <input
-            className='VerticalSlider'
+              className='VerticalSlider'
               type="range"
               orient="vertical"
               min="100" max="1000"
@@ -267,7 +267,7 @@ function App() {
               step="5"
             />
             <input
-            className='VerticalInput'
+              className='VerticalInput'
               type="text"
               value={sizeY}
               onChange={e => setSizeY(e.target.value)}
@@ -277,30 +277,30 @@ function App() {
         </div>
 
 
-    <div className="FontSizeContainer">
-      <div className="FontSize">
-      Title Font Size:
-      <input 
-      type="text"
-      value={titleSize}
-      onChange={e => setTitleSize(e.target.value)}
-      />
-      </div>
+        <div className="FontSizeContainer">
+          <div className="FontSize">
+            Title Font Size:
+            <input
+              type="text"
+              value={titleSize}
+              onChange={e => setTitleSize(e.target.value)}
+            />
+          </div>
 
-      <div className="FontSize">
-      Content Font Size:
-      <input 
-      type="text"
-      value={contentSize}
-      onChange={e => setContentSize(e.target.value)}
-      />
-      </div>
-    </div>
+          <div className="FontSize">
+            Content Font Size:
+            <input
+              type="text"
+              value={contentSize}
+              onChange={e => setContentSize(e.target.value)}
+            />
+          </div>
+        </div>
 
 
-      <button 
-        className='DefaultSettingBtn'
-        onClick={DefaultSettings}>Default</button>
+        <button
+          className='DefaultSettingBtn'
+          onClick={DefaultSettings}>Default</button>
 
       </div>
 
@@ -334,7 +334,7 @@ function App() {
             style={{
               color: fontColor,
               fontSize: `${contentSize}px`
-             }}
+            }}
             type="text"
             spellCheck="false"
             value={newTask}
@@ -358,7 +358,12 @@ function App() {
                   borderBottom: `0.1rem solid ${accentColor}`
                 }}
               >
-                <span style={{color: fontColor,}}> {e} </span>{" "}
+                <span
+                  style={{
+                    color: fontColor,
+                    fontSize: `${contentSize}px`
+                  }}
+                > {e} </span>{" "}
               </li>
             ))}
 
